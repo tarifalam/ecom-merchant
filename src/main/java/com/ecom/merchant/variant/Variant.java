@@ -3,7 +3,10 @@ package com.ecom.merchant.variant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Set;
 
@@ -18,11 +21,13 @@ import com.ecom.merchant.product.variant.option.ProductVariantOption;
 /**
  *  Created by Istiaq on 11/25/2022.
  */
-@Data
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Setter
+@Getter
+@ToString
 public class Variant  {
 
   @Id

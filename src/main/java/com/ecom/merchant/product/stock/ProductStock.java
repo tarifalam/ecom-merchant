@@ -9,7 +9,11 @@ import com.ecom.merchant.product.variant.option.ProductVariantOption;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -19,10 +23,11 @@ import java.util.Set;
 /**
  * Created by Istiaq on 11/25/2022.
  */
-@Data
-@Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class ProductStock  {
 
@@ -38,7 +43,7 @@ public class ProductStock  {
 
   
   @ManyToOne(fetch = FetchType.EAGER, optional = false)
-  @JoinColumn(name = "productCombinationId", nullable = false)
+  @JoinColumn(name = "product_combination_id", nullable = false)
   private ProductCombination productCombination; 
 
 

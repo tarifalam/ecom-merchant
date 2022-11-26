@@ -10,7 +10,10 @@ import com.ecom.merchant.product.variant.option.ProductVariantOption;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -20,11 +23,13 @@ import java.util.Set;
 /**
  * Created by Istiaq on 11/25/2022.
  */
-@Data
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Setter
+@Getter
+@ToString
 public class ImageGallery  {
 
   @Id

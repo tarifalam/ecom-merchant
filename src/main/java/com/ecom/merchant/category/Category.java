@@ -3,7 +3,10 @@ package com.ecom.merchant.category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Set;
 
@@ -16,11 +19,13 @@ import com.ecom.merchant.product.Product;
 import com.ecom.merchant.product.combination.ProductCombination;
 import com.ecom.merchant.product.variant.option.ProductVariantOption;
 
-@Data
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Setter
+@Getter
+@ToString
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

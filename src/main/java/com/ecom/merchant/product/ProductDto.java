@@ -42,22 +42,25 @@ public class ProductDto {
 
     public static Product convertToDomain(ProductDto productDto){
 
-        return Product.builder()
-                .productName(productDto.getProductName())
-                .productDescription(productDto.getProductDescription())
-                .previewImage(productDto.getPreviewImage())
-                .category(Category.builder().id(productDto.getCategoryId()).build())
-                .build();
+    	return null;
+    			
+//        return Product.builder()
+//                .productName(productDto.getProductName())
+//                .productDescription(productDto.getProductDescription())
+//                .previewImage(productDto.getPreviewImage())
+//                .category(Category.builder().id(productDto.getCategoryId()).build())
+//                .build();
     }
 
     public static ProductDto convertToDto(Product product){
-        return ProductDto.builder()
-        		.productName(product.getProductName())
-                .productDescription(product.getProductDescription())
-                .previewImage(product.getPreviewImage())
-                .categoryId(product.getCategory().getId())
-                .categoryName(product.getCategory().getName())
-                .build();
+        return null;
+//    	return ProductDto.builder()
+//        		.productName(product.getProductName())
+//                .productDescription(product.getProductDescription())
+//                .previewImage(product.getPreviewImage())
+//                .categoryId(product.getCategory().getId())
+//                .categoryName(product.getCategory().getName())
+//                .build();
     }
     
     static List<ProductDto> convertToListDto(List<Product> products) {

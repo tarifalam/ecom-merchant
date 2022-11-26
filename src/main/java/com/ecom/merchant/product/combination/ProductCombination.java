@@ -5,11 +5,16 @@ import com.ecom.merchant.merchant.Merchant;
 import com.ecom.merchant.product.Product;
 import com.ecom.merchant.product.stock.ProductStock;
 import com.ecom.merchant.product.variant.option.ProductVariantOption;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -19,10 +24,11 @@ import java.util.Set;
 /**
  * Created by Istiaq on 11/25/2022.
  */
-@Data
-@Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class ProductCombination  {
 
@@ -38,11 +44,14 @@ public class ProductCombination  {
 
   
   @ManyToOne(fetch = FetchType.EAGER, optional = false)
-  @JoinColumn(name = "productId", nullable = false)
+  @JoinColumn(name = "product_id", nullable = false)
+  @ToString.Exclude
   private Product product; 
   
   @OneToMany(mappedBy = "productCombination", fetch = FetchType.EAGER,
           cascade = CascadeType.ALL)
+  @JsonIgnore
+  @ToString.Exclude
   private Set<ProductStock> productStock;
 
 
