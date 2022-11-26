@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Divineit-Iftekher on 8/9/2017.
@@ -12,5 +13,5 @@ import java.util.List;
 public interface ProductRepository extends CrudRepository<Product,Integer> {
 
     @Override
-    List<Product> findAll();
+    Set<Product> findAll();
 }

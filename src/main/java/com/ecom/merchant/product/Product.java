@@ -29,6 +29,7 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 @Entity
+@Builder
 @Table(name = "products")
 public class Product  {
 
@@ -47,9 +48,9 @@ public class Product  {
   
   @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
   @JsonIgnore  
-  private Set<ProductCombination> productCombination = new HashSet<>();;
+  private Set<ProductCombination> productCombination;
 
-  @OneToMany(mappedBy = "product", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
   @JsonIgnore
   private Set<ProductVariantOption> productVariantOption;
 

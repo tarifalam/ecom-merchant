@@ -1,15 +1,17 @@
-package com.ecom.merchant.product.variant.option;
+package com.ecom.merchant.product.image;
 
 import com.ecom.merchant.category.Category;
 import com.ecom.merchant.merchant.Merchant;
 import com.ecom.merchant.product.Product;
 import com.ecom.merchant.product.combination.ProductCombination;
+import com.ecom.merchant.product.imagegallery.ImageGallery;
+import com.ecom.merchant.product.variant.option.ProductVariantOption;
 import com.ecom.merchant.product.variant.optionvalue.ProductVariantOptionValue;
+import com.ecom.merchant.product.variant.optionvalue.ProductVariantOptionValueDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,33 +23,24 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 /**
- *  Created by Istiaq on 11/25/2022.
+ * Created by Istiaq on 11/25/2022.
  */
-@Entity
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @ToString
-public class ProductVariantOption  {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+public class ProductImageDto  {
+
   private Integer id;
-
-  private String variantName;
-
   
-  @ManyToOne(fetch = FetchType.EAGER, optional = false)
-  @JoinColumn(name = "product_id", nullable = false)
-  @ToString.Exclude
-  private Product product; 
-  
-  @OneToMany(mappedBy = "productVariantOption", fetch = FetchType.EAGER,
-          cascade = CascadeType.ALL)
-  private Set<ProductVariantOptionValue> productVariantOptionValue;
+  private Boolean isFeature;  
 
+  private ImageGallery imageGallery; 
 
+  private ProductVariantOptionValueDto productVariantOptionValue; 
 
 }

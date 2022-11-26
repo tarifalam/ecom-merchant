@@ -12,6 +12,7 @@ import com.ecom.merchant.utility.ResponseObj;
 import com.ecom.merchant.utility.ReturnStatus;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -33,11 +34,11 @@ public class ProductController {
     }
     @GetMapping(value = "/products")
     public ResponseObj getProduct(){
-        List<ProductDto> products = productService.getAll();
+        Set<ProductDto> products = productService.getAll();
         return ResponseObj.builder().responseBody(products)
                 .returnStatus(ReturnStatus.SUCCESS)
-                .status(HttpStatus.CREATED)
-                .message("Product Information.")
+                .status(HttpStatus.ACCEPTED)
+                .message("Product Information loaded Successfully.")
                 .build();
     }
 }
