@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.ecom.merchant.brand.Brand;
 import com.ecom.merchant.category.Category;
 import com.ecom.merchant.product.combination.ProductCombination;
 import com.ecom.merchant.product.combination.ProductCombinationDto;
@@ -50,6 +51,10 @@ public class ProductDto {
     private String desc;
 
     private String imagePath;    
+    
+    private Category category;
+    
+    private Brand brand;
      
     private Set<ProductCombinationDto> productCombination;
      
@@ -71,8 +76,10 @@ public class ProductDto {
         		.productName(product.getProductName())
                 .productDescription(product.getProductDescription())
                 .previewImage(product.getPreviewImage())
-                .categoryId(product.getCategory().getId())
-                .categoryName(product.getCategory().getName())
+                .category(product.getCategory())
+                .brand(product.getBrand())
+                .productCombination(ProductCombinationDto.convertToListDto(product.getProductCombination()))
+                .productVariantOption(ProductVariantOptionDto.convertToListDto(product.getProductVariantOption()))
                 .build();
     }
     
@@ -86,6 +93,9 @@ public class ProductDto {
                 ProductDto.builder()
                 .productName(product.getProductName())
                 .productDescription(product.getProductDescription())
+                .previewImage(product.getPreviewImage())
+                .category(product.getCategory())
+                .brand(product.getBrand())
                 .productCombination(ProductCombinationDto.convertToListDto(product.getProductCombination()))
                 .productVariantOption(ProductVariantOptionDto.convertToListDto(product.getProductVariantOption()))
                 .build())

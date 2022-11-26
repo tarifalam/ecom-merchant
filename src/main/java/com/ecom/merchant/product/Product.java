@@ -1,5 +1,6 @@
 package com.ecom.merchant.product;
 
+import com.ecom.merchant.brand.Brand;
 import com.ecom.merchant.category.Category;
 import com.ecom.merchant.merchant.Merchant;
 import com.ecom.merchant.product.combination.ProductCombination;
@@ -45,6 +46,9 @@ public class Product  {
 
   @ManyToOne(optional = true)
   private Category category;
+  
+  @ManyToOne(optional = true)
+  private Brand brand;
   
   @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
   @JsonIgnore  
