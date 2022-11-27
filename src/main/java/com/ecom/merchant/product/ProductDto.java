@@ -41,9 +41,7 @@ public class ProductDto {
 
     private String previewImage;
 
-    private Integer categoryId;
-
-    private String categoryName;
+ 
 
     @NotNull
     private BigDecimal price;
@@ -67,7 +65,7 @@ public class ProductDto {
                 .productName(productDto.getProductName())
                 .productDescription(productDto.getProductDescription())
                 .previewImage(productDto.getPreviewImage())
-                .category(Category.builder().id(productDto.getCategoryId()).build())
+//                .category(Category.builder().id(productDto.getCategoryId()).build())
                 .build();
     }
 

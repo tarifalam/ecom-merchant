@@ -57,6 +57,7 @@ public class ProductCombinationDto  {
       return ProductCombinationDto.builder()
       		.combinationString(productCombination.getCombinationString())
               .sku(productCombination.getSku())
+              .id(productCombination.getId())
               .productCode(productCombination.getProductCode())
               .productStock(ProductStockDto.convertToListDto(productCombination.getProductStock())).build();
   }
@@ -71,6 +72,7 @@ public class ProductCombinationDto  {
               ProductCombinationDto.builder()
         		.combinationString(productCombination.getCombinationString())
                 .sku(productCombination.getSku())
+                .id(productCombination.getId())
                 .productCode(productCombination.getProductCode())
                 .productStock(ProductStockDto.convertToListDto(productCombination.getProductStock())).build()) 
     .collect(Collectors.toSet());
