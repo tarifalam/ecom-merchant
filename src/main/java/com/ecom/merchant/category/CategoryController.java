@@ -8,6 +8,8 @@ import com.ecom.merchant.utility.ReturnStatus;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,15 @@ public class CategoryController {
                 .returnStatus(ReturnStatus.SUCCESS)
                 .status(HttpStatus.CREATED)
                 .message("Category Created Successfully")
+                .build();
+    }
+    @GetMapping(value = "/category/{id}")
+    public ResponseObj getCategoryById(@PathVariable Integer id){
+    	CategoryDto category = categoryService.getById(id);
+        return ResponseObj.builder().responseBody(category)
+                .returnStatus(ReturnStatus.SUCCESS)
+                .status(HttpStatus.ACCEPTED)
+                .message("Category Information loaded Successfully.")
                 .build();
     }
 }
