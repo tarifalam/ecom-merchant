@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecom.merchant.utility.ResponseObj;
 import com.ecom.merchant.utility.ReturnStatus;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -35,6 +37,7 @@ public class ProductController {
     }
     @GetMapping(value = "/products")
     public ResponseObj getProduct(){
+        System.out.println("I got hit ");
         Set<ProductDto> products = productService.getAll();
         return ResponseObj.builder().responseBody(products)
                 .returnStatus(ReturnStatus.SUCCESS)
