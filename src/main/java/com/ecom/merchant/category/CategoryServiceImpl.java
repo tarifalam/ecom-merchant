@@ -9,6 +9,7 @@ import com.ecom.merchant.product.ProductDto;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -23,7 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryDto> getAll() {
-        return null;
+        return categoryRepository.findAll().stream()
+                .map(category -> CategoryDto.convertToDto(category))
+                .collect(Collectors.toList());
     }
 
     @Override

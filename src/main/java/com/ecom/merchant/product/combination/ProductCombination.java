@@ -4,7 +4,6 @@ import com.ecom.merchant.category.Category;
 import com.ecom.merchant.merchant.Merchant;
 import com.ecom.merchant.product.Product;
 import com.ecom.merchant.product.stock.ProductStock;
-import com.ecom.merchant.product.variant.option.ProductVariantOption;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;

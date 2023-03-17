@@ -4,7 +4,6 @@ import com.ecom.merchant.category.Category;
 import com.ecom.merchant.merchant.Merchant;
 import com.ecom.merchant.product.Product;
 import com.ecom.merchant.product.combination.ProductCombination;
-import com.ecom.merchant.product.variant.option.ProductVariantOption;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -26,7 +26,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @PostMapping(value = "/product")
+    @PostMapping(value = "/secure/product/new")
     public ResponseObj save(@RequestBody @Valid ProductDto productDto){
         ProductDto savedProduct = productService.save(productDto);
         return ResponseObj.builder().responseBody(savedProduct)
@@ -34,6 +34,12 @@ public class ProductController {
                 .status(HttpStatus.CREATED)
                 .message("Product Created Successfully")
                 .build();
+
+//        return ResponseObj.builder().responseBody(productDto)
+//                .returnStatus(ReturnStatus.SUCCESS)
+//                .status(HttpStatus.CREATED)
+//                .message("Product Created Successfully")
+//                .build();
     }
     @GetMapping(value = "/products")
     public ResponseObj getProduct(){

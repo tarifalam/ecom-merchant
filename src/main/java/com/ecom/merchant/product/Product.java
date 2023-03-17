@@ -4,7 +4,8 @@ import com.ecom.merchant.brand.Brand;
 import com.ecom.merchant.category.Category;
 import com.ecom.merchant.merchant.Merchant;
 import com.ecom.merchant.product.combination.ProductCombination;
-import com.ecom.merchant.product.variant.option.ProductVariantOption;
+import com.ecom.merchant.product.variant.ProductVariant;
+import com.ecom.merchant.product.variant.option.VariantOption;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,6 @@ import java.util.Set;
 @ToString
 @Entity
 @Builder
-@Table(name = "products")
 public class Product  {
 
   @Id
@@ -50,14 +50,17 @@ public class Product  {
   @ManyToOne(optional = true)
   private Brand brand;
   
-  @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-  @JsonIgnore  
-  private Set<ProductCombination> productCombination;
+//  @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//  @JsonIgnore
+//  private Set<ProductCombination> productCombination;
 
-  @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+  @OneToMany(targetEntity = ProductVariant.class,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+  @JoinColumn(name = "product_id",referencedColumnName = "id")
   @JsonIgnore
-  private Set<ProductVariantOption> productVariantOption;
+  private Set<ProductVariant> productVariants;
 
- 
+  @ManyToOne(optional = true)
+  private Merchant merchant;
+
 
 }

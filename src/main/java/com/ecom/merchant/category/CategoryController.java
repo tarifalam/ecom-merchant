@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -36,6 +37,16 @@ public class CategoryController {
     public ResponseObj getCategoryById(@PathVariable Integer id){
     	CategoryDto category = categoryService.getById(id);
         return ResponseObj.builder().responseBody(category)
+                .returnStatus(ReturnStatus.SUCCESS)
+                .status(HttpStatus.ACCEPTED)
+                .message("Category Information loaded Successfully.")
+                .build();
+    }
+
+    @GetMapping(value = "/categories")
+    public ResponseObj getCategories(){
+        List<CategoryDto> categories = categoryService.getAll();
+        return ResponseObj.builder().responseBody(categories)
                 .returnStatus(ReturnStatus.SUCCESS)
                 .status(HttpStatus.ACCEPTED)
                 .message("Category Information loaded Successfully.")

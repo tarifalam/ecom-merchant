@@ -1,23 +1,9 @@
 package com.ecom.merchant.product.imagegallery;
 
-import com.ecom.merchant.category.Category;
-import com.ecom.merchant.merchant.Merchant;
-import com.ecom.merchant.product.Product;
-import com.ecom.merchant.product.combination.ProductCombination;
 import com.ecom.merchant.product.image.ProductImage;
-import com.ecom.merchant.product.variant.option.ProductVariantOption;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.math.BigDecimal;
 import java.util.Set;
 
 /**

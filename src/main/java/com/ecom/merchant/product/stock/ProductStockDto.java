@@ -1,27 +1,11 @@
 package com.ecom.merchant.product.stock;
 
-import com.ecom.merchant.category.Category;
-import com.ecom.merchant.merchant.Merchant;
-import com.ecom.merchant.product.Product;
-import com.ecom.merchant.product.ProductDto;
-import com.ecom.merchant.product.combination.ProductCombination;
-import com.ecom.merchant.product.combination.ProductCombinationDto;
-import com.ecom.merchant.product.variant.option.ProductVariantOption;
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.math.BigDecimal;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
