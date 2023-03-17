@@ -1,5 +1,6 @@
 package com.ecom.merchant.product;
 
+import com.ecom.merchant.category.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDto update(ProductDto productDto) {
         return null;
+    }
+
+    @Override
+    public Set<ProductDto> getProductByCategory(Integer categoryId) {
+        Category category = Category.builder().id(categoryId).build();
+        Set<Product> products=productRepository.findByCategory(category);
+        products.forEach(System.out::println);
+        return  ProductDto.convertToListDto(products);
     }
 }

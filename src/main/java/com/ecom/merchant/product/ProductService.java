@@ -8,4 +8,5 @@ public interface ProductService {
     public Set<ProductDto> getAll();
     public ProductDto getById(Integer productId);
     public ProductDto update(ProductDto productDto);
+    Set<ProductDto> getProductByCategory(Integer categoryId);
 }

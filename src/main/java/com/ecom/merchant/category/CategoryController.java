@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -23,6 +24,9 @@ public class CategoryController {
 
     @Autowired
     CategoryService categoryService;
+
+    @Autowired
+    ProductService productService;
 
     @PostMapping(value = "/category/new")
     public ResponseObj save(@RequestBody @Valid CategoryDto categoryDto){
@@ -50,6 +54,17 @@ public class CategoryController {
                 .returnStatus(ReturnStatus.SUCCESS)
                 .status(HttpStatus.ACCEPTED)
                 .message("Category Information loaded Successfully.")
+                .build();
+    }
+
+    @GetMapping(value = "/category/{categoryId}/products")
+    public ResponseObj getProduct(Integer categoryId){
+        System.out.println("I got hit ");
+        Set<ProductDto> products = productService.getProductByCategory(categoryId);
+        return ResponseObj.builder().responseBody(products)
+                .returnStatus(ReturnStatus.SUCCESS)
+                .status(HttpStatus.ACCEPTED)
+                .message("Product Information loaded Successfully.")
                 .build();
     }
 }
