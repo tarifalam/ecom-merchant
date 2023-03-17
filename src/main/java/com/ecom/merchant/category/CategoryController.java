@@ -24,7 +24,7 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @PostMapping(value = "/category")
+    @PostMapping(value = "/category/new")
     public ResponseObj save(@RequestBody @Valid CategoryDto categoryDto){
         CategoryDto savedCategory = categoryService.save(categoryDto);
         return ResponseObj.builder().responseBody(savedCategory)

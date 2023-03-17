@@ -2,10 +2,7 @@ package com.ecom.merchant.category;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -19,6 +16,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+
+
+    @OneToOne(optional = true,fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @JoinColumn(name = "category_id")
+    Category category;
     
     
 }
