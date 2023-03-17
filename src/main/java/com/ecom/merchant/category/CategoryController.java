@@ -58,7 +58,7 @@ public class CategoryController {
     }
 
     @GetMapping(value = "/category/{categoryId}/products")
-    public ResponseObj getProduct(Integer categoryId){
+    public ResponseObj getProduct(@PathVariable  Integer categoryId){
         System.out.println("I got hit ");
         Set<ProductDto> products = productService.getProductByCategory(categoryId);
         return ResponseObj.builder().responseBody(products)

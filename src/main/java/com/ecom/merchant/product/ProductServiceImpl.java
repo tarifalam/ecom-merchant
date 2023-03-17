@@ -46,8 +46,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Set<ProductDto> getProductByCategory(Integer categoryId) {
         Category category = Category.builder().id(categoryId).build();
-        Set<Product> products=productRepository.findByCategory(category);
-        products.forEach(System.out::println);
+        Set<Product> products=productRepository.findByCategoryId(categoryId);
+        System.out.println("Product Length "+products.size());
         return  ProductDto.convertToListDto(products);
     }
 }
